@@ -1,0 +1,41 @@
+<html>
+<body>
+<?php
+include("/var/www/html/superdealyo/scripts/connect.php");
+$vendorid = $_GET['vendorid'];
+//echo "$vendorid";
+$query="SELECT * FROM vendor WHERE vendorid LIKE '$vendorid%'";
+$result = mysql_query($query);
+if($row = mysql_fetch_array($result)){
+$vendorid = $row["vendorid"];
+$company = $row["company"];
+$companyurl = $row["companyurl"];
+$category = $row["category"];
+$address = $row["address"];
+$city = $row["city"];
+$state = $row["state"];
+$zip = $row["zip"];
+$country = $row["country"];
+$phone = $row["phone"];
+$mphone = $row["mphone"];
+mysql_close();
+//echo "<b>vendorid:</b> $vendorid<br>";
+echo "<b>company:</b> $company<br>";
+echo "<b>companyurl:</b> $companyurl<br>";
+echo "<b>category:</b> $category<br>";
+echo "<b>address:</b> $address<br>";
+echo "<b>city:</b> $city<br>";
+echo "<b>state:</b> $state<br>";
+echo "<b>zip:</b> $zip<br>";
+echo "<b>country:</b> $country<br>";
+echo "<b>phone:</b> $phone<br>";
+echo "<b>mphone:</b> $mphone<br>";
+echo "<br><br>";
+ }
+ else { 
+         echo "The database is empty"; 
+         mysql_close(); 
+      }
+?>
+</body>
+</html>

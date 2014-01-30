@@ -1,0 +1,281 @@
+<html><!-- #BeginTemplate "/Templates/superdealyo_vendor_acct_template.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>SuperDealyo</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="http://superdealyo.com/superdealyo.rss" rel="alternate" type="application/rss+xml" title="SuperDealyo News" />
+<link rel="icon" href="../images/favicon.ico" type="image/x-icon"/>
+</head>
+<body bgcolor="#FFFFFF" link="#FFFFFF" vlink="#FFFFFF" alink="#FFFFFF">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td colspan="3" bgcolor="#FFFFFF" height="22"><font face="Verdana, Arial, Helvetica, sans-serif" size="+2"> 
+      <a href="../index.html"> <img src="../images/world.png" width="69" height="77" border="0"></a></font><font face="Verdana, Arial, Helvetica, sans-serif" size="+2"><b><font color="#FFFFFF"><a style="text-decoration:none" href="../index.html"><font color="#FF0000" size="+3">Super</font><font color="#0000FF" size="+3">Dealyo</font></a></font></b></font><font size="1" face="Verdana, Arial, Helvetica, sans-serif" color="#000000"><b>&#153;</b> 
+      </font> <b><font face="Verdana, Arial, Helvetica, sans-serif" size="+2"><b><font color="#FFFFFF"> 
+      <font size="1">TM&#153;</font></font></b></font></b> </td>
+    <td rowspan="2" bgcolor="#FFFFFF" height="28" width="59%"> <font color="#000000"> 
+      <font color="#000000"> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><i> 
+      <font size="1" color="#FFFFFF"> </font></i></font></font> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+      <i></i></font></font> </td>
+  </tr>
+  <tr> 
+    <td colspan="3" bgcolor="#FFFFFF" height="6"> 
+      <p><font size="1" face="Verdana, Arial, Helvetica, sans-serif" color="#000000">Bringing 
+        location aware deals to your fingertips<b> &reg;</b></font></p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0" height="22">
+  <tr bgcolor="#FFFFCC"> 
+    <td colspan="8" height="22" bgcolor="#DFDFDF"> 
+      <p align="center">&nbsp; </p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0" height="197">
+  <tr align="left" valign="top"> 
+    <th width="30%" bordercolor="#999999" bgcolor="#FFFFFF" height="18"><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Vendor 
+      Menu</font></th>
+    <td width="70%" height="18" bordercolor="#999999">&nbsp;</td>
+  </tr>
+  <tr align="left" valign="top"> 
+    <td width="30%" height="299" bordercolor="#999999"> 
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="1"><a href="discount_code_add.html"><font color="#0000FF">Add 
+        Discounts and Offerings</font></a></font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="1"><a href="discount_update.html"><font color="#0000FF">Update 
+        Discounts and Offerings</font></a></font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="1"><a href="discount_delete.html"><font color="#0000FF">Delete 
+        Discounts and Offerings</font></a></font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="1"><font face="Verdana, Arial, Helvetica, sans-serif" size="1"><a href="../scripts/view_vendor_account.php"><font color="#0000FF">Vendor 
+        Account Management</font></a></font></font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="1"><a href="../logout/logout.php"><font color="#0000FF">Logout</font></a></font></p>
+      </td>
+    <td width="70%" height="299" bordercolor="#999999"><!-- #BeginEditable "Text_Area" -->
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="1">Update Discounts and Offerings-You can only update discount amount and dates
+        <?php 
+include("/var/www/html/scripts/connect.php");
+session_start();
+if(!isset($_SESSION['fname'])){
+echo"Please Create Login";
+exit;
+}
+echo"Welcome, ",$_SESSION['fname'],".";
+$email=$_SESSION['email'];
+//echo "$email";
+$query="SELECT * FROM vendor WHERE email LIKE '$email%'";
+$result = mysql_query($query);
+if($row = mysql_fetch_array($result)){
+$vendorid = $row["vendorid"];
+//echo "$vendorid";
+$query="SELECT * FROM discount WHERE vendorid LIKE '$vendorid%'";
+$result = mysql_query($query);
+$array = array();
+$num = mysql_num_rows($result);
+if ($num > 0){
+while($row = mysql_fetch_assoc($result)){
+$array[] = $row;
+}
+}else {
+        echo "The Discount database is empty";
+      }
+}else {
+         echo "The database is empty";
+         mysql_close();
+      }
+echo "<br><br>";
+mysql_close();
+?> </font> </p>
+      <form id="FormName" action="../scripts/discount_update.php" method="post" name="FormName">
+        <table width="448" border="0" cellspacing="2" cellpadding="0">
+          <tr>
+            <td width="150">
+              <div align="right"> <label for="item1">item1</label></div>
+            </td>
+            <td> 
+              <input id="item1" name="item1" type="text"size="50" value="<?php echo $array[0]['item']?>" maxlength="50" readonly>
+            </td>
+          </tr>
+        <tr>
+            <td width="150">
+              <div align="right"> <label for="upc1">upc1</label></div>
+            </td>
+            <td>
+              <input id="upc1" name="upc1" type="text" size="25" value="<?php echo $array[0]['upc']?>" maxlength="14" readonly>
+            </td>
+          </tr>
+          <tr>
+            <td width="150">
+              <div align="right"> <label for="discount1">discount1</label></div>
+            </td>
+            <td> 
+              <input id="discount1" name="discount1" type="text" size="25" value="<?php echo $array[0]['discount']?>" maxlength="5">
+            </td>
+          </tr>
+          <tr>
+            <td width="150">
+              <div align="right"> <label for="unit1">unit1</label></div>
+            </td>
+            <td> 
+              <input id="unit1" name="unit1" type="text" size="25" value="<?php echo $array[0]['unit']?>" maxlength="5">
+            </td>
+          </tr>
+          <tr>
+            <td width="150">
+              <div align="right"> <label for="startdate1">startdate1</label></div>
+            </td>
+            <td> 
+              <input id="startdate1" name="startdate1" type="text" size="25" value="<?php echo $array[0]['startdate']?>" maxlength="8">
+            </td>
+          </tr>
+          <tr>
+            <td width="150">
+              <div align="right"> <label for="enddate1">enddate1</label></div>
+            </td>
+            <td> 
+              <input id="enddate1" name="enddate1" type="text" size="25" value="<?php echo $array[0]['enddate']?>" maxlength="8">
+            </td>
+          </tr>
+          <tr> 
+            <td width="150"></td>
+            <td>
+            </td>
+          </tr>
+       <tr>
+            <td width="150">
+              <div align="right"> <label for="item2">item2</label></div>
+            </td>
+            <td>
+                <input id="item2" name="item2" type="text"size="50" value="<?php echo $array[1]['item']?>" maxlength="50" readonly>
+            </td>
+          </tr>
+        <tr>
+            <td width="150">
+              <div align="right"> <label for="upc2">upc2</label></div>
+            </td>
+            <td>
+                 <input id="upc2" name="upc2" type="text"size="25" value="<?php echo $array[1]['upc']?>" maxlength="14" readonly>
+            </td>
+          </tr>
+          <tr>
+            <td width="150">
+              <div align="right"> <label for="discount2">discount2</label></div>
+            </td>
+            <td>
+              <input id="discount2" name="discount2" type="text" size="25" value="<?php echo $array[1]['discount']?>" maxlength="5">
+            </td>
+          </tr>
+          <tr>
+            <td width="150">
+              <div align="right"> <label for="unit2">unit2</label></div>
+            </td>
+            <td>
+              <input id="unit1" name="unit2" type="text" size="25" value="<?php echo $array[1]['unit']?>" maxlength="5">
+            </td>
+          </tr>
+          <tr>
+            <td width="150">
+              <div align="right"> <label for="startdate2">startdate2</label></div>
+            </td>
+            <td>
+              <input id="startdate2" name="startdate2" type="text" size="25" value="<?php echo $array[1]['startdate']?>" maxlength="8">
+            </td>
+          </tr>
+          <tr>
+            <td width="150">
+              <div align="right"> <label for="enddate2">enddate2</label></div>
+            </td>
+            <td>
+              <input id="enddate2" name="enddate2" type="text" size="25" value="<?php echo $array[1]['enddate']?>" maxlength="8">
+            </td>
+          </tr>
+          <tr>
+            <td width="150"></td>
+            <td>
+            </td>
+          </tr>
+        <tr>
+            <td width="150">
+              <div align="right"> <label for="item3">item3</label></div>
+            </td>
+            <td>
+                 <input id="item3" name="item3" type="text"size="50" value="<?php echo $array[2]['item']?>" maxlength="50" readonly>
+            </td>
+          </tr>
+       <tr>
+            <td width="150">
+              <div align="right"> <label for="upc3">upc3</label></div>
+            </td>
+            <td>
+                <input id="upc3" name="upc3" type="text"size="25" value="<?php echo $array[2]['upc']?>" maxlength="14" readonly>
+            </td>
+          </tr>
+          <tr>
+            <td width="150">
+              <div align="right"> <label for="discount3">discount3</label></div>
+            </td>
+            <td>
+              <input id="discount3" name="discount3" type="text" size="25" value="<?php echo $array[2]['discount']?>" maxlength="5">
+            </td>
+          </tr>
+          <tr>
+            <td width="150">
+              <div align="right"> <label for="unit3">unit3</label></div>
+            </td>
+            <td>
+              <input id="unit3" name="unit3" type="text" size="25" value="<?php echo $array[2]['unit']?>" maxlength="5">
+            </td>
+          </tr>
+          <tr>
+            <td width="150">
+              <div align="right"> <label for="startdate3">startdate3</label></div>
+            </td>
+            <td>
+              <input id="startdate3" name="startdate3" type="text" size="25" value="<?php echo $array[2]['startdate']?>" maxlength="8">
+            </td>
+          </tr>
+          <tr>
+            <td width="150">
+              <div align="right"> <label for="enddate3">enddate3</label></div>
+            </td>
+            <td>
+              <input id="enddate3" name="enddate3" type="text" size="25" value="<?php echo $array[2]['enddate']?>" maxlength="8">
+            </td>
+          </tr>
+          <tr>
+            <td width="150"></td>
+            <td>
+              <input type="submit" name="submitButtonName" value="Update">
+              <input type="hidden" name="vendorid" value="<?php echo $vendorid ?>">
+            </td>
+          </tr>
+        </table>
+      </form>
+      <!-- #EndEditable --></td>
+  </tr>
+</table>
+<table width="100%" border="0" height="1%">
+  <tr bgcolor="6699FF"> 
+    <td width=" " height="9">
+      <div align="right"><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#FFFFFF"> 
+        <a href="vendor.html" target="_blank"> </a> <a href="../about/about.html" target="_blank">About</a> 
+        <a href="../career/career.html" target="_blank">Career</a> <a href="../privacy/privacy.html" target="_blank">Privacy</a> 
+        <a href="../help/help.html" target="_blank">Help</a></font></div>
+    </td>
+  </tr>
+  <tr bgcolor="#FFFFFF"> 
+    <td width=" " height="9"> 
+      <div align="center"><img src="../images/facebook.JPG" width="20" height="20"><img src="../images/twitter.JPG" width="20" height="20"><img src="../images/RSS.JPG" width="20" height="20"></div>
+    </td>
+  </tr>
+  <tr bgcolor="#FFFFFF"> 
+    <td width=" " height="9"> 
+      <p align="center"><font face="Verdana, Arial, Helvetica, sans-serif" size="1">Copyright 
+        &copy; 2013 SuperDealyo</font></p>
+    </td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

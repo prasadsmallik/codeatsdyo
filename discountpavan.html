@@ -1,0 +1,193 @@
+<html><!-- #BeginTemplate "/Templates/superdealyo_general_template.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>SuperDealyo</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="http://superdealyo.simutel.com/superdealyo.rss" rel="alternate" type="application/rss+xml" title="SuperDealyo News" />
+<link rel="icon" href="../images/favicon.ico" type="image/x-icon"/>
+</head>
+<body bgcolor="#FFFFFF" link="#FFFFFF" vlink="#FFFFFF" alink="#FFFFFF">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td colspan="3" bgcolor="#FFFFFF" height="22"><font face="Verdana, Arial, Helvetica, sans-serif" size="+2"> 
+      <a href="../index.html"> <img src="../images/world.png" width="69" height="77" border="0"></a></font><font face="Verdana, Arial, Helvetica, sans-serif" size="+2"><b><font color="#FFFFFF"><a style="text-decoration:none" href="../index.html"><font color="#FF0000" size="+3">Super</font><font color="#0000FF" size="+3">Dealyo</font></a></font></b></font><font size="1" face="Verdana, Arial, Helvetica, sans-serif" color="#000000"><b>&#153;</b> 
+      </font> <b><font face="Verdana, Arial, Helvetica, sans-serif" size="+2"><b><font color="#FFFFFF"> 
+      <font size="1">TM&#153;</font></font></b></font></b> </td>
+    <td rowspan="2" bgcolor="#FFFFFF" height="28" width="59%"> <font color="#000000"> 
+      <font color="#000000"> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><i> 
+      <font size="1" color="#FFFFFF"> </font></i></font></font> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+      <i></i></font></font> </td>
+  </tr>
+  <tr> 
+    <td colspan="3" bgcolor="#FFFFFF" height="6"> 
+      <p><font size="1" face="Verdana, Arial, Helvetica, sans-serif" color="#000000">Bringing 
+        location aware deals to your fingertips<b> &reg;</b></font></p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0" height="22">
+  <tr bgcolor="#FFFFCC"> 
+    <td colspan="8" height="22" bgcolor="#DFDFDF"> 
+      <p align="center">&nbsp; </p>
+    </td>
+  </tr>
+</table>
+<table width="80%" border="0" height="197">
+  <tr align="left" valign="top"> 
+    <th width="80%" bordercolor="#999999" bgcolor="#FFFFFF" height="1"><font face="Verdana, Arial, Helvetica, sans-serif" size="1">Results of Your Search for Deals by Vendor and Zip Code are Shown Here</font></th>
+  </tr>
+  <tr align="left" valign="top"> 
+    <td width="80%" height="299" bordercolor="#999999">
+<!-- #BeginEditable "Text_Area" --> 
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="1"> 
+<?php 
+include("/var/www/html/scripts/pavan/connect.php");
+$company = $_POST['company'];
+$zip = $_POST['zip'];
+$result = mysql_query("SELECT * FROM vendor WHERE zip LIKE '$zip%' AND company LIKE '$company%'");
+        if($row = mysql_fetch_array($result)){
+//            print $row["company"];
+$vendorid = $row["vendorid"];
+//echo "$vendorid";
+            }
+else {
+             echo " No such Company in this Zip code in our Database yet. Please try another search.";
+                 mysql_close();
+                 exit;
+    }
+$query="SELECT * FROM vendor WHERE vendorid LIKE '$vendorid%'";
+$result = mysql_query($query);
+if($row = mysql_fetch_array($result)){
+$vendorid = $row["vendorid"];
+$company = $row["company"];
+$category = $row["category"];
+$address = $row["address"];
+$city = $row["city"];
+$state = $row["state"];
+$zip = $row["zip"];
+$country = $row["country"];
+$phone = $row["phone"];
+$companyurl = $row["companyurl"];
+$query="SELECT * FROM subcat WHERE vendorid LIKE '$vendorid%'";
+$result = mysql_query($query);
+if($row = mysql_fetch_array($result)){
+$subcat1 = $row["subcatname1"];
+$subcat2 = $row["subcatname2"];
+$subcat3 = $row["subcatname3"];
+$subcat4 = $row["subcatname4"];
+$subcat5 = $row["subcatname5"];
+$subcat6 = $row["subcatname6"];
+$subcat7 = $row["subcatname7"];
+$subcat8 = $row["subcatname8"];
+$subcat9 = $row["subcatname9"];
+$subcat10 = $row["subcatname10"];
+}
+else { 
+         echo "The subcategory database is empty";  
+      }
+$array = array();
+$query="SELECT * FROM discount WHERE vendorid LIKE '$vendorid%'";
+$result = mysql_query($query);
+$num = mysql_num_rows($result);
+if ($num > 0){
+while($row = mysql_fetch_assoc($result)){
+$array[] = $row;
+}
+}else {
+        echo "The Discount database is empty";
+        mysql_close();
+      }
+}else{
+        echo "The Vendor Database is empty";
+     }
+mysql_close();
+echo "<br>";
+echo "<b>Company:</b> $company<br>";
+echo "<b>Address:</b> $address<br>";
+echo "<b>City:</b> $city<br>";
+echo "<b>State:</b> $state<br>";
+echo "<b>Zip:</b> $zip<br>";
+echo "<b>Country:</b> $country<br>";
+echo "<b>Company URL:</b> $companyurl<br>";
+echo "<b>Phone:</b> $phone<br>";
+echo "<br>";
+//echo "<b>Category and Sub-categories</b><br>";
+echo "<b>Category:</b> $category<br>";
+//echo "<b>Sub-cateogry1:</b> $subcat1<br>";
+//echo "<b>Sub-cateogry2:</b> $subcat2<br>";
+//echo "<b>Sub-cateogry3:</b> $subcat3<br>";
+//echo "<b>Sub-cateogry4:</b> $subcat4<br>";
+//echo "<b>Sub-cateogry5:</b> $subcat5<br>";
+//echo "<b>Sub-cateogry6:</b> $subcat6<br>";
+//echo "<b>Sub-cateogry7:</b> $subcat7<br>";
+//echo "<b>Sub-cateogry8:</b> $subcat8<br>";
+//echo "<b>Sub-cateogry9:</b> $subcat9<br>";
+//echo "<b>Sub-cateogry10:</b> $subcat10<br>";
+echo "<br>";
+echo "<b>Discount and Special Offerings</b><br>";
+echo "<br><br>";
+?></font> </p>
+      <table width="100%" border="1" cellspacing="0" cellpadding="0" bordercolor="#999999">
+        <tr> 
+          <td height="29" width="25" bordercolor="#999999"><font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#000000">Item</font></td>
+          <td height="29" width="25" bordercolor="#999999"><font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#000000">UPC</font></td>
+          <td height="29" width="18%" bordercolor="#999999"><font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#000000">Discount</font></td>
+          <td height="29" width="17%" bordercolor="#999999"><font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#000000">Unit</font></td>
+          <td height="29" width="20" bordercolor="#999999"><font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#000000">Start 
+            Date</font></td>
+          <td height="29" width="20" bordercolor="#999999"><font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#000000">End 
+            Date</font></td>
+        </tr>
+        <tr> 
+          <td width="25" bordercolor="#999999"><font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#000000"><?php echo $array[0]['item'];?></font></td>
+          <td width="25" bordercolor="#999999"><font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#000000"><?php echo  $array[0]['upc'];?></font></td>
+          <td width="18%" bordercolor="#999999"><font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#000000"><?php echo  $array[0]['discount'];?></font></td>
+          <td width="17%" bordercolor="#999999"><font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#000000"><?php echo  $array[0]['unit'];?></font></td>
+          <td width="20" bordercolor="#999999"><font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#000000"><?php echo $array[0]['startdate'];?></font></td>
+          <td width="20" bordercolor="#999999"><font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#000000"><?php echo  $array[0]['enddate'];?></font></td>
+        </tr>
+        <tr> 
+          <td width="25" bordercolor="#999999"><font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#000000"><?php echo  $array[1]['item'];?></font></td>
+<td width="25" bordercolor="#999999"><font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#000000"><?php echo  $array[1]['upc'];?></font></td>
+          <td width="18%" bordercolor="#999999"><font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#000000"><?php echo  $array[1]['discount'];?></font></td>
+          <td width="17%" bordercolor="#999999"><font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#000000"><?php echo $array[1]['unit'];?></font></td>
+          <td width="20" bordercolor="#999999"><font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#000000"><?php echo  $array[1]['startdate'];?></font></td>
+          <td width="20" bordercolor="#999999"><font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#000000"><?php echo  $array[1]['enddate'];?></font></td>
+        </tr>
+        <tr> 
+          <td width="25" bordercolor="#999999"><font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#000000"><?php echo  $array[2]['item'];?></font></td>
+          <td width="25" bordercolor="#999999"><font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#000000"><?php echo  $array[2]['upc'];?></font></td>
+          <td width="18%" bordercolor="#999999"><font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#000000"><?php echo  $array[2]['discount'];?></font></td>
+          <td width="17%" bordercolor="#999999"><font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#000000"><?php echo  $array[2]['unit'];?></font></td>
+          <td width="20" bordercolor="#999999"><font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#000000"><?php echo  $array[2]['startdate'];?></font></td>
+          <td width="20" bordercolor="#999999"><font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#000000"><?php echo  $array[2]['enddate'];?></font></td>
+        </tr>
+      </table>
+      <p>&nbsp;</p>
+      <!-- #EndEditable --></td>
+</tr>
+</table>
+<table width="100%" border="0" height="1%">
+  <tr bgcolor="6699FF"> 
+    <td width=" " height="9">
+      <div align="right"><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#FFFFFF"> 
+        <a href="vendor.html" target="_blank"> </a> <a href="../about/about.html" target="_blank">About</a> 
+        <a href="../career/career.html" target="_blank">Career</a> <a href="../privacy/privacy.html" target="_blank">Privacy</a> 
+        <a href="../help/help.html" target="_blank">Help</a></font></div>
+    </td>
+  </tr>
+  <tr bgcolor="#FFFFFF"> 
+    <td width=" " height="9"> 
+      <div align="center"><img src="../images/facebook.JPG" width="20" height="20"><img src="../images/twitter.JPG" width="20" height="20"><img src="../images/RSS.JPG" width="20" height="20"></div>
+    </td>
+  </tr>
+  <tr bgcolor="#FFFFFF"> 
+    <td width=" " height="9"> 
+      <p align="center"><font face="Verdana, Arial, Helvetica, sans-serif" size="1">Copyright 
+        &copy; 2013 SuperDealyo</font></p>
+    </td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

@@ -1,0 +1,83 @@
+<html><!-- #BeginTemplate "/Templates/go2myworld_general_template.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Go2MyWorld</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="http://go2myworld.simutel.com/go2myworld.rss" rel="alternate" type="application/rss+xml" title="Go2MyWorld News" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon"/>
+</head>
+<body bgcolor="#FFFFFF" link="#FFFFFF" vlink="#FFFFFF" alink="#FFFFFF">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td colspan="3" bgcolor="6699FF" height="22"><font face="Verdana, Arial, Helvetica, sans-serif" size="+2"><b><font color="#FFFFFF"><a href="../index.html"><img src="../images/world.png" width="40" height="40" border="0"></a></font><font face="Verdana, Arial, Helvetica, sans-serif" size="+2"><b><font color="#FFFFFF"><a STYLE="text-decoration:none" href="../index.html">Go2MyWorld</a><font size="1">&#153;</font></font></b></font></b></font></td>
+    <td rowspan="2" bgcolor="6699FF" height="28" width="59%"><font color="#000000"><font color="#000000"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><i><font size="1" color="#FFFFFF">A 
+      platform to manage your world, </font><font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#FFFFFF"><i><i>create 
+      </i>dashboards of items important to you and</i></font><font size="1" color="#FFFFFF"> 
+      access special offers from your local providers of products &amp; services. 
+      All in one place.</font></i></font></font><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><i></i></font></font></td>
+  </tr>
+  <tr> 
+    <td colspan="3" bgcolor="6699FF" height="6"> 
+      <p><font size="1" face="Verdana, Arial, Helvetica, sans-serif" color="#FFFFFF">Bringing 
+        your world to your fingertips<b> &reg;</b></font></p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0" height="42">
+  <tr bgcolor="#FFFFCC"> 
+    <td colspan="8" height="16" bgcolor="#DFDFDF"> 
+      <p align="center">  
+        <input type=submit value="Search" name="submit2">
+        <input size=15 name="sp_q2">
+      </p>
+      </td>
+  </tr>
+</table>
+<table width="100%" border="0" height="197">
+  <tr align="left" valign="top"> 
+    <td width="69%" height="266" bordercolor="#FFFFFF" valign="top"> 
+      <p><font color="#000000" face="Verdana, Arial, Helvetica, sans-serif" size="1"><!-- #BeginEditable "Text_Area" -->
+<font face="Verdana, Arial, Helvetica, sans-serif" size="2"><i></i></font><font color="#000000"><font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#003333">
+<?php
+session_start();
+if(!isset($_SESSION['fname'])){
+echo"Please Create login";
+exit;
+}
+echo"Thank you, ",$_SESSION['fname'],", ","for signing up.
+An email has been sent to you with a temporary password. 
+Please change the password from home page of Go2MyWorld.com.";
+session_unset();
+session_destroy();
+?>
+</font></font><!-- #EndEditable --></font></p>
+      
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0" height="8" bgcolor="#FFFFFF">
+  <tr bgcolor="#6699FF" bordercolor="#FFFFFF"> 
+    <td height="2" nowrap> 
+      <div align="right"><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#FFFFFF"><a href="../index.html" target="_self"> 
+        </a><a href="../vendor/vendor.html" target="_self">Vendors</a> <a href="../about/about.html" target="_blank">About</a> 
+        <a href="../career/career.html" target="_blank">Career</a> <a href="../privacy/privacy.html" target="_blank">Privacy</a> 
+        <a href="../help/help.html" target="_blank">Help</a></font></div>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0" height="1%">
+  <tr bgcolor="#FFFFFF">
+    <td width=" " height="7"> 
+      <div align="center"><img src="../images/facebook.JPG" width="20" height="20"><img src="../images/twitter.JPG" width="20" height="20"><img src="../images/RSS.JPG" width="20" height="20"></div>
+    </td>
+  </tr>
+  <tr bgcolor="#FFFFFF"> 
+    <td width=" " height="2"> 
+      <p align="center"><font face="Verdana, Arial, Helvetica, sans-serif" size="1">Copyright 
+        &copy; 2011 Go2MyWorld</font></p>
+    </td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

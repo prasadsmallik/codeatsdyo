@@ -1,0 +1,176 @@
+<html><!-- #BeginTemplate "/Templates/go2myworld_home_template.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Go2MyWorld</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="http://go2myworld.simutel.com/go2myworld.rss" rel="alternate" type="application/rss+xml" title="Go2MyWorld News" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon"/>
+<script language="JavaScript">
+<!--
+function MM_findObj(n, d) { //v3.0
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document); return x;
+}
+
+function MM_validateForm() { //v3.0
+  var i,p,q,nm,test,num,min,max,errors='',args=MM_validateForm.arguments;
+  for (i=0; i<(args.length-2); i+=3) { test=args[i+2]; val=MM_findObj(args[i]);
+    if (val) { nm=val.name; if ((val=val.value)!="") {
+      if (test.indexOf('isEmail')!=-1) { p=val.indexOf('@');
+        if (p<1 || p==(val.length-1)) errors+='- '+nm+' must contain an e-mail address.\n';
+      } else if (test!='R') { num = parseFloat(val);
+        if (val!=''+num) errors+='- '+nm+' must contain a number.\n';
+        if (test.indexOf('inRange') != -1) { p=test.indexOf(':');
+          min=test.substring(8,p); max=test.substring(p+1);
+          if (num<min || max<num) errors+='- '+nm+' must contain a number between '+min+' and '+max+'.\n';
+    } } } else if (test.charAt(0) == 'R') errors += '- '+nm+' is required.\n'; }
+  } if (errors) alert('The following error(s) occurred:\n'+errors);
+  document.MM_returnValue = (errors == '');
+}
+//-->
+</script>
+</head>
+<body bgcolor="#FFFFFF" link="#FFFFFF" vlink="#FFFFFF" alink="#FFFFFF">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td colspan="3" bgcolor="6699FF" height="22"><font face="Verdana, Arial, Helvetica, sans-serif" size="+2"><b><font color="#FFFFFF"><a href="../index.html"><img src="../images/world.png" width="40" height="40" border="0"></a></font><font face="Verdana, Arial, Helvetica, sans-serif" size="+2"><b><font color="#FFFFFF"><a STYLE="text-decoration:none" href="../index.html">Go2MyWorld</a><font size="1">&#153;</font></font></b></font></b></font></td>
+    <td rowspan="2" bgcolor="6699FF" height="28" width="59%"><font color="#000000"><font color="#000000"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><i><font size="1" color="#FFFFFF">A 
+      platform to manage your world, </font><font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#FFFFFF"><i><i>create 
+      </i>dashboards of items important to you and</i></font><font size="1" color="#FFFFFF"> 
+      access special offers from your local providers of products &amp; services. 
+      All in one place.</font></i></font></font><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><i></i></font></font></td>
+  </tr>
+  <tr> 
+    <td colspan="3" bgcolor="6699FF" height="6"> 
+      <p><font size="1" face="Verdana, Arial, Helvetica, sans-serif" color="#FFFFFF">Bringing 
+        your world to your fingertips<b> &reg;</b></font></p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0" height="42">
+  <tr bgcolor="#FFFFCC"> 
+    <td colspan="8" height="16" bgcolor="#DFDFDF"> 
+      <p align="center">  
+        <input type=submit value="Search" name="submit2">
+        <input size=15 name="sp_q2">
+      </p>
+      </td>
+  </tr>
+</table>
+<table width="100%" border="0" height="197">
+  <tr align="left" valign="top"> 
+    <td width="31%" height="266" bordercolor="#999999"> 
+      <table width="16%" align="left" border="2" vspace="0" height="190">
+        <tr align="center" bgcolor="lightyellow" valign="top"> 
+          <td height="0"> 
+            <form method="post" action="../scripts/check_login.php" name="logon">
+              <p> 
+                <input type="text" name="email" maxlength="40" onBlur="MM_validateForm('email','','RisEmail');return document.MM_returnValue">
+                <font size="1" face="Verdana, Arial, Helvetica, sans-serif" color="#003333">email 
+                address </font> 
+                <input type="password" name="password" maxlength="10" onBlur="MM_validateForm('password','','R');return document.MM_returnValue">
+                <font size="1" color="#003333" face="Verdana, Arial, Helvetica, sans-serif">password</font></p>
+              <p> 
+                <input type="submit" name="Submit" value="log in" onClick="MM_validateForm('email','','RisEmail','password','','R');return document.MM_returnValue">
+                <input type="reset" name="Reset" value="Clear">
+              </p>
+              </form>
+          </td>
+        </tr>
+        <tr align="center" bgcolor="white"> 
+          <td height="0"> 
+            <p><font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#003333"><a href="createlogin.html" target="_self"><font color="#0000FF">Create 
+              login</font></a></font></p>
+          </td>
+        </tr>
+        <tr align="center" bgcolor="white"> 
+          <td height="0"><font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#003333"><a href="forgot_pwd.html" target="_self"><font color="#0000FF">Forgot 
+            Password</font></a></font></td>
+        </tr>
+        <tr align="center" bgcolor="white"> 
+          <td height="13"> 
+            <p><font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#003333"><a href="change_pwd.html" target="_self"><font color="#0000FF">Change 
+              Password</font></a></font></p>
+          </td>
+        </tr>
+      </table>
+    <td width="69%" height="266" bordercolor="#FFFFFF" valign="top"> 
+      <p><font color="#000000"><!-- #BeginEditable "Text_Area" --><font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#003333">Forgot Password
+</font><!-- #EndEditable --></font></p>
+      
+        <!-- #BeginEditable "form" --> 
+      <form method="post" action="http://go2myworld.simutel.com/scripts/forgot_password.php" name="create_login">
+        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#003333">Fields 
+          marked by * are Required fields</font> </p>
+        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#003333">First 
+          Name*</font> 
+          <input type="text" name="fname" maxlength="20" onBlur="MM_validateForm('fname','','R');return document.MM_returnValue">
+          <font size="1" face="Verdana, Arial, Helvetica, sans-serif" color="#003333">Middle 
+          Initial</font> 
+          <input type="text" name="mname" maxlength="4">
+          <font size="1" face="Verdana, Arial, Helvetica, sans-serif" color="#003333">Last 
+          Name*</font> 
+          <input type="text" name="lname" maxlength="20" onBlur="MM_validateForm('lname','','R');return document.MM_returnValue">
+        </p>
+        <p><font size="1" face="Verdana, Arial, Helvetica, sans-serif" color="#003333">Comapny 
+          Name </font> 
+          <input type="text" name="company" maxlength="20">
+          <font size="1" face="Verdana, Arial, Helvetica, sans-serif" color="#003333">Country*</font> 
+          <input type="text" name="country" maxlength="20" onBlur="MM_validateForm('country','','R');return document.MM_returnValue">
+          <font size="1" face="Verdana, Arial, Helvetica, sans-serif" color="#003333">Zip*</font> 
+          <input type="text" name="zip" maxlength="8" onBlur="MM_validateForm('zip','','R');return document.MM_returnValue">
+        </p>
+        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#003333">Address*</font> 
+          <input type="text" name="address" maxlength="40" onBlur="MM_validateForm('address','','R');return document.MM_returnValue">
+          <font size="1" face="Verdana, Arial, Helvetica, sans-serif" color="#003333"> 
+          City* </font> 
+          <input type="text" name="city" maxlength="20" onBlur="MM_validateForm('city','','R');return document.MM_returnValue">
+          <font size="1" face="Verdana, Arial, Helvetica, sans-serif">State*</font> 
+          <input type="text" name="state" maxlength="20" onBlur="MM_validateForm('state','','R');return document.MM_returnValue">
+        </p>
+        <p><font size="1" face="Verdana, Arial, Helvetica, sans-serif" color="#003333">Phone 
+          Number*</font> 
+          <input type="text" name="phone" maxlength="20" onBlur="MM_validateForm('phone','','R');return document.MM_returnValue">
+          <font size="1" face="Verdana, Arial, Helvetica, sans-serif" color="#003333">Mobile 
+          Number</font> 
+          <input type="text" name="mphone" maxlength="20">
+          <font size="1" face="Verdana, Arial, Helvetica, sans-serif" color="#003333">Email*</font> 
+          <input type="text" name="email2" maxlength="40" onBlur="MM_validateForm('email2','','RisEmail');return document.MM_returnValue">
+        </p>
+        <p> 
+          <input type="submit" name="Submit2" value="Submit" onClick="MM_validateForm('email2','','RisEmail','fname','','R','lname','','R','country','','R','zip','','R','address','','R','city','','R','state','','R','phone','','R');return document.MM_returnValue">
+          <input type="reset" name="Submit2" value="Clear">
+        </p>
+      </form>
+      <!-- #EndEditable -->
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0" height="8" bgcolor="#FFFFFF">
+  <tr bgcolor="#6699FF" bordercolor="#FFFFFF"> 
+    <td height="2" nowrap> 
+      <div align="right"><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#FFFFFF"><a href="../index.html" target="_self"> 
+        </a><a href="../vendor/vendor.html" target="_self">Vendors</a> <a href="../about/about.html" target="_blank">About</a> 
+        <a href="../career/career.html" target="_blank">Career</a> <a href="../privacy/privacy.html" target="_blank">Privacy</a> 
+        <a href="../help/help.html" target="_blank">Help</a></font></div>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0" height="1%">
+  <tr bgcolor="#FFFFFF">
+    <td width=" " height="7"> 
+      <div align="center"><img src="../images/facebook.JPG" width="20" height="20"><img src="../images/twitter.JPG" width="20" height="20"><img src="../images/RSS.JPG" width="20" height="20"></div>
+    </td>
+  </tr>
+  <tr bgcolor="#FFFFFF"> 
+    <td width=" " height="2"> 
+      <p align="center"><font face="Verdana, Arial, Helvetica, sans-serif" size="1">Copyright 
+        &copy; 2011 Go2MyWorld</font></p>
+    </td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

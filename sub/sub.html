@@ -1,0 +1,189 @@
+<html><!-- #BeginTemplate "/Templates/go2myworld_subscriber_template.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>Go2MyWorld</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="http://go2myworld.simutel.com/go2myworld.rss" rel="alternate" type="application/rss+xml" title="Go2MyWorld News" />
+<link rel="icon" href="../images/favicon.ico" type="image/x-icon"/>
+</head>
+<body bgcolor="#FFFFFF" link="#FFFFFF" vlink="#FFFFFF" alink="#FFFFFF">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td colspan="3" bgcolor="6699FF" height="22"><font face="Verdana, Arial, Helvetica, sans-serif" size="+2"><b><font color="#FFFFFF"><a href="sub.html"><img src="../images/world.png" width="40" height="40" border="0"></a></font><font face="Verdana, Arial, Helvetica, sans-serif" size="+2"><b><font color="#FFFFFF"><a STYLE="text-decoration:none" href="sub.html">Go2MyWorld</a><font size="1">&#153;</font></font></b></font></b></font></td>
+    <td rowspan="2" bgcolor="6699FF" height="28" width="59%"><font color="#000000"><font color="#000000"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><i><font size="1" color="#FFFFFF">A 
+      platform to manage your world, </font><font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#FFFFFF"><i><i>create 
+      </i>dashboards of items important to you and</i></font><font size="1" color="#FFFFFF"> 
+      access special offers from your local providers of products &amp; services. 
+      All in one place.</font></i></font></font><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><i></i></font></font></td>
+  </tr>
+  <tr> 
+    <td colspan="3" bgcolor="6699FF" height="6"> 
+      <p><font size="1" face="Verdana, Arial, Helvetica, sans-serif" color="#FFFFFF">Bringing 
+        your world to your fingertips<b> &reg;</b></font></p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0" height="42">
+  <tr bgcolor="#FFFFCC"> 
+    <td colspan="8" height="32" bgcolor="#DFDFDF"> 
+      <p align="center"> 
+        <input type=submit value="Search" name="submit2">
+        <input size=15 name="sp_q2">
+      </p>
+      </td>
+  </tr>
+</table>
+<table width="100%" border="0" height="208">
+  <tr align="left" valign="top">
+    <th width="23%" bordercolor="#999999" bgcolor="#FFFFFF" height="18"><font face="Verdana, Arial, Helvetica, sans-serif" size="2">My 
+      Menu</font></th>
+    <td width="50%" height="18" bordercolor="#999999">&nbsp;</td>
+    <th width="27%" bordercolor="#999999" height="18"> 
+      <div align="center"><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Vendor 
+        Offerings</font></div>
+    </th>
+  </tr>
+  <tr align="left" valign="top"> 
+    <td width="23%" height="376" bordercolor="#999999"> 
+      <p>&nbsp;</p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="1"><a href="sub.html" target="_self"><font color="#0000FF">Home</font></a></font> 
+      </p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="1"><a href="editorial.html"><font color="#0000FF">Editorial</font></a></font> 
+      </p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="1"> <a href="../scripts/view_sub_account.php" target="_self"><font color="#0000FF">Account 
+        Management</font> </a></font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="1"><a href="../logout/logout.php" target="_self"><font color="#0000FF">Logout</font></a></font></p>
+      </td>
+    <td width="50%" height="376" bordercolor="#999999"><!-- #BeginEditable "Text_Area" -->
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="1"> <?php 
+include("/var/www/html/go2myworld/scripts/connect.php");
+session_start();
+if(!isset($_SESSION['fname'])){
+echo"Please Create Login";
+exit;
+}
+echo"Welcome, ",$_SESSION['fname'],".";
+echo "<br><br>";
+$email=$_SESSION['email'];
+//echo "$email";
+$query="SELECT * FROM sub WHERE email LIKE '$email%'";
+$result = mysql_query($query);
+if($row = mysql_fetch_array($result)){
+$subid = $row["subid"];
+//echo "$subid";
+$query="SELECT * FROM profile WHERE subid LIKE '$subid%'";
+$result = mysql_query($query);
+if($row = mysql_fetch_array($result)){
+$bio = $row["bio"];
+//echo "$bio";
+$goal = $row["goal"];
+$achievement = $row["achievement"];
+$picture = $row["picture"];
+$fburl = $row["fburl"];
+$twturl = $row["twturl"];
+$linkedinurl = $row["linkedinurl"];
+$query="SELECT * FROM health WHERE subid LIKE '$subid%'";
+$result = mysql_query($query);
+if($row = mysql_fetch_array($result)){
+$bmi = $row["bmi"];
+$dbp = $row["dbp"];
+$sbp = $row["sbp"];
+$ldl = $row["ldl"];
+$hdl = $row["hdl"];
+$totcholes = $row["totcholes"];
+$sugar = $row["sugar"];
+//echo "$sugar";
+}
+else { 
+         echo "The Health database is empty";  
+      }
+$query="SELECT * FROM finance WHERE subid LIKE '$subid%'";
+$result = mysql_query($query);
+if($row = mysql_fetch_array($result)){
+$survivalratio = $row["survivalratio"];
+$quickratio = $row["quickratio"];
+$networthratio = $row["networthratio"];
+//echo "$quickratio";
+}
+else { 
+         echo "The Finance database is empty";  
+      }
+echo "<b>Bio:</b> $bio<br>";
+echo "<b>Goal:</b> $goal<br>";
+echo "<b>Achievements:</b> $achievement<br>";
+echo "<b>Picture:</b> $picture<br>";
+echo "<b>Facebook Link:</b> $fburl<br>";
+echo "<b>Twitter Link:</b> $twturl<br>";
+echo "<b>LinkedIn Link:</b> $linkedinurl<br>";
+echo "<br>";
+echo "<b>Health Dashboard</b><br>";
+echo "<b>Body Mass Index:</b> $bmi: Ideal Value is less Than 25<br>";
+echo "<b>Diastolic BP:</b> $dbp:Ideal Value is less than <br>";
+echo "<b>Systolic BP:</b> $sbp:Ideal Value is less than <br>";
+echo "<b>LDL:</b> $ldl:Ideal Value is less than <br>";
+echo "<b>HDL:</b> $hdl:Ideal Value is less than <br>";
+echo "<b>Total Cholestrol:</b> $totcholes:Ideal Value is less than<br>";
+echo "<b>Sugar:</b> $sugar:Ideal Value is less than 90<br>";
+echo "<br>";
+echo "<b>Financial Dashboard</b><br>";
+echo "<b>Survival Ratio:</b> $survivalratio:Ideal Value is greater than <br>";
+echo "<b>Quick Ratio:</b> $quickratio:Ideal Value is greater than <br>";
+echo "<b>Networth Ratio:</b> $networthratio:Ideal Value is greater than <br>";
+ }
+ else { 
+         echo "The Profile database is empty"; 
+      }
+ }
+ else { 
+         echo "The database is empty"; 
+         mysql_close(); 
+      }
+echo "<br><br>";
+mysql_close();
+?> </font> </p>
+      <p>&nbsp;</p>
+      <p align="center"><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000"><a STYLE="text-decoration:none" href="./profile.html"><font color="#0000FF">Update Your Page</font></a></font> 
+        <a>&nbsp;&nbsp;</a> </p>
+      <!-- #EndEditable --></td>
+    <td width="27%" height="376" bordercolor="#999999"> 
+      <p align="center"><font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#0000FF"><font color="#000000"><a href="../vendor/apparel.html"><font color="#0000FF">Apparel</font></a></font></font> 
+      </p>
+      <p align="center"><font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#000000"><a href="../vendor/appliances.html"><font color="#0000FF">Appliances</font></a></font></p>
+      <p align="center"><font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#000000"><a href="../vendor/automotive.html"><font color="#0000FF">Automotive</font></a></font></p>
+      <p align="center"><font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#000000"><a href="../vendor/construction.html"><font color="#0000FF">Construction</font></a></font></p>
+      <p align="center"><font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#000000"><a href="../vendor/educational.html"><font color="#0000FF">Educational</font></a></font></p>
+      <p align="center"><font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#000000"><a href="../vendor/entertainment.html"><font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#000000"></font></a><font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#000000"><a href="../vendor/electronics.html"><font color="#0000FF">Electronics</font></a></font></font></p>
+      <p align="center"><font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#000000"><a href="../vendor/entertainment.html"><font color="#0000FF">Entertainment</font></a></font></p>
+      <p align="center"><font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#000000"><a href="../vendor/grocery.html"><font color="#0000FF">Grocery</font></a></font></p>
+      <p align="center"><font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#000000"><a href="../vendor/hardware.html"><font color="#0000FF">Hardware 
+        </font></a></font></p>
+      <p align="center"><font face="Verdana, Arial, Helvetica, sans-serif" color="#000000" size="1"><a href="../vendor/pharmacy.html"><font color="#0000FF">Pharmacy</font></a></font></p>
+      <p align="center"><font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#000000"><a href="../vendor/services.html"><font color="#0000FF">Services</font></a></font></p>
+      <p align="center"><font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#000000"><a href="../vendor/travel.html"><font color="#0000FF">Travel</font></a></font></p>
+      </td>
+  </tr>
+</table>
+<table width="100%" border="0" height="1%">
+  <tr bgcolor="6699FF"> 
+    <td width=" " height="9">
+      <div align="right"><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#FFFFFF"> 
+        <a href="../vendor/vendor.html" target="_blank"> </a> <a href="../about/about.html" target="_blank">About</a> 
+        <a href="../career/career.html" target="_blank">Career</a> <a href="../privacy/privacy.html" target="_blank">Privacy</a> 
+        <a href="../help/help.html" target="_blank">Help</a></font></div>
+    </td>
+  </tr>
+  <tr bgcolor="#FFFFFF"> 
+    <td width=" " height="9"> 
+      <div align="center"><img src="../images/facebook.JPG" width="20" height="20"><img src="../images/twitter.JPG" width="20" height="20"><img src="../images/RSS.JPG" width="20" height="20"></div>
+    </td>
+  </tr>
+  <tr bgcolor="#FFFFFF"> 
+    <td width=" " height="9"> 
+      <p align="center"><font face="Verdana, Arial, Helvetica, sans-serif" size="1">Copyright 
+        &copy; 2011 Go2MyWorld, Inc.</font></p>
+    </td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

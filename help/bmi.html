@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body bgcolor="#FFFFFF">
+<p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">BMI Calculator 
+  </font></p>
+<p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> </font></p>
+<form method="post" action="../scripts/bmi.php" name="bmi">
+  <p><font face="Verdana, Arial, Helvetica, sans-serif" size="1">Enter Your Height 
+    <input type="text" name="feet" size="2" maxlength="2">
+    feet 
+    <input type="text" name="inches" size="2" maxlength="2">
+    inches </font></p>
+  <p><font face="Verdana, Arial, Helvetica, sans-serif" size="1">enter Your Weight 
+    <input type="text" name="weight" size="3" maxlength="3">
+    lbs</font> </p>
+  <p> 
+    <input type="submit" name="Submit" value="Submit">
+  </p>
+</form>
+<?php
+session_start();
+$bmi=$_SESSION['bmi'];
+echo "Your BMI is $bmi";
+session_unset();
+session_destroy();
+?>
+<p>&nbsp; </p>
+</body>
+</html>

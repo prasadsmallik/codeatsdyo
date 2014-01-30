@@ -1,0 +1,147 @@
+<html><!-- #BeginTemplate "/Templates/superdealyo_vendor_template.dwt" -->
+<?php
+session_start();
+?>
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>SuperDealyo</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="http://superdealyo.com/superdealyo.rss" rel="alternate" type="application/rss+xml" title="Superdealyo News" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon"/>
+<script language="JavaScript">
+<!--
+function MM_findObj(n, d) { //v3.0
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document); return x;
+}
+
+function MM_validateForm() { //v3.0
+  var i,p,q,nm,test,num,min,max,errors='',args=MM_validateForm.arguments;
+  for (i=0; i<(args.length-2); i+=3) { test=args[i+2]; val=MM_findObj(args[i]);
+    if (val) { nm=val.name; if ((val=val.value)!="") {
+      if (test.indexOf('isEmail')!=-1) { p=val.indexOf('@');
+        if (p<1 || p==(val.length-1)) errors+='- '+nm+' must contain an e-mail address.\n';
+      } else if (test!='R') { num = parseFloat(val);
+        if (val!=''+num) errors+='- '+nm+' must contain a number.\n';
+        if (test.indexOf('inRange') != -1) { p=test.indexOf(':');
+          min=test.substring(8,p); max=test.substring(p+1);
+          if (num<min || max<num) errors+='- '+nm+' must contain a number between '+min+' and '+max+'.\n';
+    } } } else if (test.charAt(0) == 'R') errors += '- '+nm+' is required.\n'; }
+  } if (errors) alert('The following error(s) occurred:\n'+errors);
+  document.MM_returnValue = (errors == '');
+}
+//-->
+</script>
+</head>
+<body bgcolor="#FFFFFF" link="#FFFFFF" vlink="#FFFFFF" alink="#FFFFFF">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td colspan="3" bgcolor="#FFFFFF" height="22"><font face="Verdana, Arial, Helvetica, sans-serif" size="+2"> 
+      <a href="../index.html"> <img src="../images/world.png" width="69" height="77" border="0"></a></font><font face="Verdana, Arial, Helvetica, sans-serif" size="+2"><b><font color="#FFFFFF"><a style="text-decoration:none" href="../index.html"><font color="#FF0000" size="+3">Super</font><font color="#0000FF" size="+3">Dealyo</font></a></font></b></font><font size="1" face="Verdana, Arial, Helvetica, sans-serif" color="#000000"><b>&#153;</b> 
+      </font> <b><font face="Verdana, Arial, Helvetica, sans-serif" size="+2"><b><font color="#FFFFFF"> 
+      <font size="1">TM&#153;</font></font></b></font></b> </td>
+    <td rowspan="2" bgcolor="#FFFFFF" height="28" width="59%"> <font color="#000000"> 
+      <font color="#000000"> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><i> 
+      <font size="1" color="#FFFFFF"> </font></i></font></font> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+      <i></i></font></font> </td>
+  </tr>
+  <tr> 
+    <td colspan="3" bgcolor="#FFFFFF" height="6"> 
+      <p><font size="1" face="Verdana, Arial, Helvetica, sans-serif" color="#000000">Bringing 
+        location aware deals to your fingertips<b> &reg;</b></font></p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0" height="22">
+  <tr bgcolor="#FFFFCC"> 
+    <td colspan="8" height="22" bgcolor="#DFDFDF"> 
+      <p align="center">&nbsp; </p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0" height="197">
+  <tr align="left" valign="top"> 
+    <td width="31%" height="317" bordercolor="#999999"> 
+      <p>&nbsp;</p><table width="16%" align="left" border="2" vspace="0" height="190">
+        <tr align="center" bgcolor="lightyellow" valign="top"> 
+          <td height="0"> 
+            <form method="post" action="../scripts/vendor_check_login.php" name="logon">
+              <p> 
+                <input type="text" name="email" maxlength="40" onBlur="MM_validateForm('email','','RisEmail');return document.MM_returnValue">
+                <font size="1" face="Verdana, Arial, Helvetica, sans-serif" color="#003333">email 
+                address </font> 
+                <input type="password" name="password" maxlength="10" onBlur="MM_validateForm('password','','R');return document.MM_returnValue">
+                <font size="1" color="#003333" face="Verdana, Arial, Helvetica, sans-serif">password</font></p>
+              <p> 
+                <input type="submit" name="Submit" value="log in" onClick="MM_validateForm('email','','RisEmail','password','','R');return document.MM_returnValue">
+                <input type="reset" name="Reset" value="Clear">
+              </p>
+              </form>
+          </td>
+        </tr>
+        <tr align="center" bgcolor="white"> 
+          <td height="0"> 
+            <p><font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#003333"><a href="vendor_create_login.html" target="_self"><font color="#0000FF">Create 
+              login</font></a></font></p>
+          </td>
+        </tr>
+        <tr align="center" bgcolor="white"> 
+          <td height="0"><font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#003333"><a href="vendor_forgot_pwd.html" target="_self"><font color="#0000FF">Forgot 
+            Password</font></a></font></td>
+        </tr>
+        <tr align="center" bgcolor="white"> 
+          <td height="13"> 
+            <p><font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#003333"><a href="vendor_change_pwd.html" target="_self"><font color="#0000FF">Change 
+              Password</font></a></font></p>
+          </td>
+        </tr>
+      </table>
+    <td width="69%" height="317" bordercolor="#FFFFFF" valign="top"> 
+      <p><font color="#000000" face="Verdana, Arial, Helvetica, sans-serif" size="1"><!-- #BeginEditable "Text_Area" -->Vendor 
+        Login Page<!-- #EndEditable --></font></p>
+      
+        <!-- #BeginEditable "form" -->{form} 
+      <form method="post" action="">
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+      </form>
+<?php if (isset($_SESSION['login_errors'])){ ?> 
+    <div class="form-errors"> 
+        <?php foreach($_SESSION['login_errors'] as $error): ?> 
+            <p><?php echo $error ?></p> 
+        <?php endforeach; unset($_SESSION['login_errors']);?> 
+    </div> 
+<?php } ?>
+      <!-- #EndEditable -->
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0" height="8" bgcolor="#FFFFFF">
+  <tr bgcolor="#6699FF" bordercolor="#FFFFFF"> 
+    <td height="2" nowrap> 
+      <div align="right"><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#FFFFFF"><a href="../index.html" target="_self"> 
+        </a><a href="vendor.html" target="_self">Vendors</a> <a href="../about/about.html" target="_blank">About</a> 
+        <a href="../career/career.html" target="_blank">Career</a> <a href="../privacy/privacy.html" target="_blank">Privacy</a> 
+        <a href="../help/help.html" target="_blank">Help</a></font></div>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0" height="1%">
+  <tr bgcolor="#FFFFFF">
+    <td width=" " height="7"> 
+      <div align="center"><img src="../images/facebook.JPG" width="20" height="20"><img src="../images/twitter.JPG" width="20" height="20"><img src="../images/RSS.JPG" width="20" height="20"></div>
+    </td>
+  </tr>
+  <tr bgcolor="#FFFFFF"> 
+    <td width=" " height="2"> 
+      <p align="center"><font face="Verdana, Arial, Helvetica, sans-serif" size="1">Copyright 
+        &copy; 2013 SuperDealyo</font></p>
+    </td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>
